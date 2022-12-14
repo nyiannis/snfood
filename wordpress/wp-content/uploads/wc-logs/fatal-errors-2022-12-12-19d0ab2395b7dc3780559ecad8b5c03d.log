@@ -1,0 +1,83 @@
+2022-12-12T18:25:55+00:00 CRITICAL Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wp.wp_mailpoet_subscribers' doesn't exist in /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:59
+Stack trace:
+#0 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php(59): PDOStatement->execute(NULL)
+#1 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(495): MailPoetVendor\Doctrine\DBAL\Driver\PDOStatement->execute()
+#2 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/Persisters/Entity/BasicEntityPersister.php(375): MailPoetVendor\Doctrine\DBAL\Connection->executeQuery('SELECT t0.wp_us...', Array, Array)
+#3 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(78): MailPoetVendor\Doctrine\ORM\Persisters\Entity\BasicEntityPersister->load(Array, NULL, NULL, Array, NULL, 1, NULL)
+#4 /var/www/html/wp-content/plugins/mailpoet/lib/Doctrine/Repository.php(67): MailPoetVendor\Doctrine\ORM\EntityRepository->findOneBy(Array, NULL)
+#5 /var/www/html/wp-content/plugins/mailpoet/lib/Subscribers/SubscribersRepository.php(327): MailPoet\Doctrine\Repository->findOneBy(Array)
+#6 /var/www/html/wp-content/plugins/mailpoet/lib/WooCommerce/Subscription.php(153): MailPoet\Subscribers\SubscribersRepository->getCurrentWPUser()
+#7 /var/www/html/wp-content/plugins/mailpoet/lib/PostEditorBlocks/WooCommerceBlocksIntegration.php(104): MailPoet\WooCommerce\Subscription->isCurrentUserSubscribed()
+#8 /var/www/html/wp-includes/class-wp-hook.php(308): MailPoet\PostEditorBlocks\WooCommerceBlocksIntegration->registerCheckoutFrontendBlocks(Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#9 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#10 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/Integrations/IntegrationRegistry.php(48): do_action('woocommerce_blo...', Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#12 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(114): Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry->initialize('checkout_block')
+#13 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(70): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->initialize()
+#14 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypesController.php(64): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->__construct(Object(Automattic\WooCommerce\Blocks\Assets\Api), Object(Automattic\WooCommerce\Blocks\Assets\AssetDataRegistry), Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#15 /var/www/html/wp-includes/class-wp-hook.php(308): Automattic\WooCommerce\Blocks\BlockTypesController->register_blocks('')
+#16 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#17 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#18 /var/www/html/wp-settings.php(617): do_action('init')
+#19 /var/www/html/wp-config.php(96): require_once('/var/www/html/w...')
+#20 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#21 /var/www/html/wp-admin/admin-ajax.php(22): require_once('/var/www/html/w...')
+#22 {main}
+
+Next MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wp.wp_mailpoet_subscribers' doesn't exist in /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDO/Exception.php:10
+Stack trace:
+#0 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php(61): MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception::new(Object(PDOException))
+#1 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(495): MailPoetVendor\Doctrine\DBAL\Driver\PDOStatement->execute()
+#2 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/Persisters/Entity/BasicEntityPersister.php(375): MailPoetVendor\Doctrine\DBAL\Connection->executeQuery('SELECT t0.wp_us...', Array, Array)
+#3 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(78): MailPoetVendor\Doctrine\ORM\Persisters\Entity\BasicEntityPersister->load(Array, NULL, NULL, Array, NULL, 1, NULL)
+#4 /var/www/html/wp-content/plugins/mailpoet/lib/Doctrine/Repository.php(67): MailPoetVendor\Doctrine\ORM\EntityRepository->findOneBy(Array, NULL)
+#5 /var/www/html/wp-content/plugins/mailpoet/lib/Subscribers/SubscribersRepository.php(327): MailPoet\Doctrine\Repository->findOneBy(Array)
+#6 /var/www/html/wp-content/plugins/mailpoet/lib/WooCommerce/Subscription.php(153): MailPoet\Subscribers\SubscribersRepository->getCurrentWPUser()
+#7 /var/www/html/wp-content/plugins/mailpoet/lib/PostEditorBlocks/WooCommerceBlocksIntegration.php(104): MailPoet\WooCommerce\Subscription->isCurrentUserSubscribed()
+#8 /var/www/html/wp-includes/class-wp-hook.php(308): MailPoet\PostEditorBlocks\WooCommerceBlocksIntegration->registerCheckoutFrontendBlocks(Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#9 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#10 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/Integrations/IntegrationRegistry.php(48): do_action('woocommerce_blo...', Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#12 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(114): Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry->initialize('checkout_block')
+#13 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(70): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->initialize()
+#14 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypesController.php(64): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->__construct(Object(Automattic\WooCommerce\Blocks\Assets\Api), Object(Automattic\WooCommerce\Blocks\Assets\AssetDataRegistry), Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#15 /var/www/html/wp-includes/class-wp-hook.php(308): Automattic\WooCommerce\Blocks\BlockTypesController->register_blocks('')
+#16 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#17 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#18 /var/www/html/wp-settings.php(617): do_action('init')
+#19 /var/www/html/wp-config.php(96): require_once('/var/www/html/w...')
+#20 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#21 /var/www/html/wp-admin/admin-ajax.php(22): require_once('/var/www/html/w...')
+#22 {main}
+
+Next MailPoetVendor\Doctrine\DBAL\Exception\TableNotFoundException: An exception occurred while executing 'SELECT t0.wp_user_id AS wp_user_id_1, t0.is_woocommerce_user AS is_woocommerce_user_2, t0.first_name AS first_name_3, t0.last_name AS last_name_4, t0.email AS email_5, t0.status AS status_6, t0.subscribed_ip AS subscribed_ip_7, t0.confirmed_ip AS confirmed_ip_8, t0.confirmed_at AS confirmed_at_9, t0.last_subscribed_at AS last_subscribed_at_10, t0.unconfirmed_data AS unconfirmed_data_11, t0.source AS source_12, t0.count_confirmations AS count_confirmations_13, t0.unsubscribe_token AS unsubscribe_token_14, t0.link_token AS link_token_15, t0.engagement_score AS engagement_score_16, t0.engagement_score_updated_at AS engagement_score_updated_at_17, t0.last_engagement_at AS last_engagement_at_18, t0.woocommerce_synced_at AS woocommerce_synced_at_19, t0.email_count AS email_count_20, t0.id AS id_21, t0.created_at AS created_at_22, t0.updated_at AS updated_at_23, t0.deleted_at AS deleted_at_24 FROM wp_mailpoet_subscribers t0 WHERE t0.wp_user_id = ? LIMIT 1' with params [1]:
+
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'wp.wp_mailpoet_subscribers' doesn't exist in /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php:44
+Stack trace:
+#0 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php(77): MailPoetVendor\Doctrine\DBAL\Driver\AbstractMySQLDriver->convertException('An exception oc...', Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception))
+#1 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php(65): MailPoetVendor\Doctrine\DBAL\DBALException::wrapException(Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\MySQL\Driver), Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception), 'An exception oc...')
+#2 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(936): MailPoetVendor\Doctrine\DBAL\DBALException::driverExceptionDuringQuery(Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\MySQL\Driver), Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception), 'SELECT t0.wp_us...', Array)
+#3 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(503): MailPoetVendor\Doctrine\DBAL\Connection->handleExceptionDuringQuery(Object(MailPoetVendor\Doctrine\DBAL\Driver\PDO\Exception), 'SELECT t0.wp_us...', Array, Array)
+#4 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/Persisters/Entity/BasicEntityPersister.php(375): MailPoetVendor\Doctrine\DBAL\Connection->executeQuery('SELECT t0.wp_us...', Array, Array)
+#5 /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php(78): MailPoetVendor\Doctrine\ORM\Persisters\Entity\BasicEntityPersister->load(Array, NULL, NULL, Array, NULL, 1, NULL)
+#6 /var/www/html/wp-content/plugins/mailpoet/lib/Doctrine/Repository.php(67): MailPoetVendor\Doctrine\ORM\EntityRepository->findOneBy(Array, NULL)
+#7 /var/www/html/wp-content/plugins/mailpoet/lib/Subscribers/SubscribersRepository.php(327): MailPoet\Doctrine\Repository->findOneBy(Array)
+#8 /var/www/html/wp-content/plugins/mailpoet/lib/WooCommerce/Subscription.php(153): MailPoet\Subscribers\SubscribersRepository->getCurrentWPUser()
+#9 /var/www/html/wp-content/plugins/mailpoet/lib/PostEditorBlocks/WooCommerceBlocksIntegration.php(104): MailPoet\WooCommerce\Subscription->isCurrentUserSubscribed()
+#10 /var/www/html/wp-includes/class-wp-hook.php(308): MailPoet\PostEditorBlocks\WooCommerceBlocksIntegration->registerCheckoutFrontendBlocks(Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#11 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#12 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#13 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/Integrations/IntegrationRegistry.php(48): do_action('woocommerce_blo...', Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#14 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(114): Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry->initialize('checkout_block')
+#15 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypes/AbstractBlock.php(70): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->initialize()
+#16 /var/www/html/wp-content/plugins/woocommerce/packages/woocommerce-blocks/src/BlockTypesController.php(64): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->__construct(Object(Automattic\WooCommerce\Blocks\Assets\Api), Object(Automattic\WooCommerce\Blocks\Assets\AssetDataRegistry), Object(Automattic\WooCommerce\Blocks\Integrations\IntegrationRegistry))
+#17 /var/www/html/wp-includes/class-wp-hook.php(308): Automattic\WooCommerce\Blocks\BlockTypesController->register_blocks('')
+#18 /var/www/html/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#19 /var/www/html/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#20 /var/www/html/wp-settings.php(617): do_action('init')
+#21 /var/www/html/wp-config.php(96): require_once('/var/www/html/w...')
+#22 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#23 /var/www/html/wp-admin/admin-ajax.php(22): require_once('/var/www/html/w...')
+#24 {main}
+  thrown in /var/www/html/wp-content/plugins/mailpoet/vendor-prefixed/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 44
+
